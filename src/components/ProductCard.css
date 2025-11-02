@@ -1,39 +1,59 @@
 .product-card {
-  background: white;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   display: flex;
   gap: 16px;
   position: relative;
   transition: transform 0.2s, box-shadow 0.2s;
-  border-left: 4px solid #4CAF50;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #10b981, #059669);
+  border-radius: 16px 0 0 16px;
 }
 
 .product-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .product-card.warning {
-  border-left-color: #ff9800;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.product-card.warning::before {
+  background: linear-gradient(180deg, #f59e0b, #d97706);
 }
 
 .product-card.expired {
-  border-left-color: #f44336;
-  background: #fff5f5;
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.product-card.expired::before {
+  background: linear-gradient(180deg, #ef4444, #dc2626);
 }
 
 .product-image {
   flex-shrink: 0;
   width: 80px;
   height: 80px;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  background: #f5f5f5;
+  background: var(--bg-tertiary);
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 .product-image img {
@@ -54,8 +74,8 @@
 .product-name {
   margin: 0 0 4px 0;
   font-size: 1.1rem;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: var(--text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -64,7 +84,7 @@
 .product-brand {
   margin: 0 0 12px 0;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--text-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -83,36 +103,40 @@
 }
 
 .detail-row .label {
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .detail-row .value {
-  font-weight: 500;
-  color: #333;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .expiration-status {
   margin-top: 8px;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
+  border: 1px solid;
 }
 
 .expiration-status.good {
-  background: #e8f5e9;
-  color: #2e7d32;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .expiration-status.warning {
-  background: #fff3e0;
-  color: #e65100;
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 .expiration-status.expired {
-  background: #ffebee;
-  color: #c62828;
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 .delete-btn {
